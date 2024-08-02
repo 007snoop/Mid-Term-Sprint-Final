@@ -1,0 +1,24 @@
+[
+    {
+        "fName": "Colin",
+        "lName": "Yetman",
+        "age": "29",
+        "gamesPlayed": [
+          "Helldivers 2",
+            "Fallout 4",
+            "The Quest"
+        ],
+        "status": "In-Relationship"
+    },
+    
+    {   
+        "fName": "Kenzie",
+        "lName": "Moore",
+        "age": "25",
+        "gamesPlayed": [
+            "The Sims 4", 
+            "Slimerancher"
+        ],
+        "status": "In-Relationship"
+    }
+]
