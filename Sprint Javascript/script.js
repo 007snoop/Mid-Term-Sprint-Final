@@ -1,30 +1,26 @@
-fetch("JSON/games.json")
-	.then(response => response.json())
-	.then((data) => {
-		console.log(data);
-		data.forEach((game) => {
-			console.log(game.gameName);
+// promise all is used to open multiple files in one code block
+
+Promise.all([fetch("JSON/games.json"), fetch("JSON/person.json")])
+	// .then to read the json files
+	.then(([gamesResponse, personResponse]) =>
+		Promise.all([gamesResponse.json(), personResponse.json()])
+	)
+
+	// this .then is now used to manipulate the data from the json files
+	.then(([gamesData, personData]) => {
+		personData.forEach((person) => {
+			const personBox = document.createElement("div");
+
+			personBox.id = "personContainer";
+			personBox.innerText = `${person.fName} ${person.lName}`;
+
+			document.body.appendChild(personBox);
 		});
-	})
+        gamesData.forEach((game) => {
+            const gameBox = document.createElement("div");
 
-fetch("JSON/person.json")
-    .then(response => response.json())
-
-    .then(data => {
-
-        const peopleContainer = document.createElement("div");
-        peopleContainer.id = "people";
-
-        console.log(data);
-
-        data.forEach((person) => {
-            const personItem = document.createElement("li");
-            personItem.textContent = `${person.fName} ${person.lName}`
-
-            peopleContainer.appendChild(personItem);
-
-   
-        });
-        document.body.appendChild(peopleContainer);
-    })
-
+            gameBox.id = "gameContainer";
+            gameBox.innerText = `${game.gameName}`;
+            
+            document.body.appendChild(gameBox);
+    })});
