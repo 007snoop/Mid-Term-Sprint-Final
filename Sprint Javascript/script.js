@@ -16,11 +16,21 @@ Promise.all([fetch("JSON/games.json"), fetch("JSON/person.json")])
 
 			document.body.appendChild(personBox);
 		});
+
+        
         gamesData.forEach((game) => {
             const gameBox = document.createElement("div");
 
             gameBox.id = "gameContainer";
             gameBox.innerText = `${game.gameName}`;
-            
+
             document.body.appendChild(gameBox);
     })});
+
+
+const box = document.createElement("div");
+
+box.id = "boxContainer";
+box.innerText = `sgbsdgbjhsdbngjksnbfgkjsn`;
+
+document.body.appendChild(box);
