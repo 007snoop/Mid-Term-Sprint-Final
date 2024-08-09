@@ -1,36 +1,86 @@
-// promise all is used to open multiple files in one code block
-
-Promise.all([fetch("JSON/games.json"), fetch("JSON/person.json")])
-	// .then to read the json files
-	.then(([gamesResponse, personResponse]) =>
-		Promise.all([gamesResponse.json(), personResponse.json()])
-	)
-
-	// this .then is now used to manipulate the data from the json files
-	.then(([gamesData, personData]) => {
+fetch("JSON/person.json")
+	.then((response) => {
+		if (!response.ok) {
+			throw new Error("Did not read JSON");
+		}
+		return response.json();
+	})
+	.then((personData) => {
+		createPersonDiv();
 		personData.forEach((person) => {
-			const personBox = document.createElement("div");
-
-			personBox.id = "personContainer";
-			personBox.innerText = `${person.fName} ${person.lName}`;
-
-			document.body.appendChild(personBox);
+			getPersonName(person);
+			getAge(person);
+			getGamesPlayed(person);
+			getHoursPlayed(person);
+			getStatus(person);
 		});
+	})
+	.catch((error) => {
+		console.error("ISSUE GO FIX:", error);
+	});
 
-        
-        gamesData.forEach((game) => {
-            const gameBox = document.createElement("div");
+function createPersonDiv() {
+	// creates a div element with the class name of personContainer
+	let personbox = document.createElement("div");
+	personbox.className = "personContainer";
+	document.body.appendChild(personbox);
+}
 
-            gameBox.id = "gameContainer";
-            gameBox.innerText = `${game.gameName}`;
+function getPersonName(person) {
+	// create the person box first here
+	// this is used to get the name of the person from the person json
+	let personBoxes = document.getElementsByClassName("personContainer");
+	// target last child of div element
+	let lastPersonBox = personBoxes[personBoxes.length - 1];
+	if (lastPersonBox) {
+		lastPersonBox.innerHTML += `
+        <p> - ${person.fName} ${person.lName} </p>`;
+	}
+}
 
-            document.body.appendChild(gameBox);
-    })});
+function getAge(person) {
+	// this is used to get the age of the person from the person json
+	let personBoxes = document.getElementsByClassName("personContainer");
+	// target the last child of the personContainer
+	let lastPersonBox = personBoxes[personBoxes.length - 1];
+	if (lastPersonBox) {
+		lastPersonBox.innerHTML += `<p> - Age: ${person.age} </p>
+        `;
+	}
+}
 
+function getGamesPlayed(person) {
+	// this is used to get the games played by the person json
+	let personBoxes = document.getElementsByClassName("personContainer");
+	// again, target the last child of the personContainer
+	let lastPersonBox = personBoxes[personBoxes.length - 1];
+	if (lastPersonBox) {
+		lastPersonBox.innerHTML += `
+        <p> - Games played: ${person.gamesPlayed} </p>
+        `;
+	}
+}
 
-const box = document.createElement("div");
+function getStatus(person) {
+	// this is used to get the status of the person json relationship
+	let personBoxes = document.getElementsByClassName("personContainer");
+	// again, target the last child of the personContainer
+	let lastPersonBox = personBoxes[personBoxes.length - 1];
+	if (lastPersonBox) {
+		lastPersonBox.innerHTML += `
+        <p> - Status: ${person.status} </p>
+        `;
+	}
+}
 
-box.id = "boxContainer";
-box.innerText = `sgbsdgbjhsdbngjksnbfgkjsn`;
+function getHoursPlayed(person) {
+	// this is used to get the hours played for the games in the person json
+	let personBoxes = document.getElementsByClassName("personContainer");
+	// target the last child of the personContainer
+	let lastPersonBox = personBoxes[personBoxes.length - 1];
 
-document.body.appendChild(box);
+	if (lastPersonBox) {
+		lastPersonBox.innerHTML += `
+        <p> - Hours played: ${person.hoursPlayed} </p>`;
+	}
+}

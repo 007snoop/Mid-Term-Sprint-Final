@@ -3,8 +3,9 @@
 		"fName": "Colin",
 		"lName": "Yetman",
 		"age": "29",
-		"gamesPlayed": ["Helldivers 2", "Fallout 4", "The Quest"],
-		"status": "In-Relationship"
+		"gamesPlayed": ["Warhammer 40k: Inquistor Martyr" , "Fallout 4", "The Quest"],
+		"status": "In-Relationship",
+        "hoursPlayed": ["2,955", "88", "122"]
 	},
 
 	{
@@ -12,6 +13,7 @@
 		"lName": "Moore",
 		"age": "25",
 		"gamesPlayed": ["The Sims 4", "Slimerancher"],
-		"status": "In-Relationship"
+		"status": "In-Relationship",
+        "hoursPlayed": ["817", "70"]
 	}
 ]
