@@ -13,7 +13,7 @@ This project fetches JSON data from a local file (`person.json`) and displays in
 
 1. **Open `index.html`**
 
-   Open `index.html` in your browser to view the project in action. Ensure that the JSON file (`person.json`) is in the correct directory (`JSON/person.json`).
+   Open `index.html` in your IDE and run `index.html` in a local server. Ensure that the JSON file (`person.json`) is in the correct directory (`JSON/person.json`).
 
 ## How It Works
 
