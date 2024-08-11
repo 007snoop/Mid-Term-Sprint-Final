@@ -6,6 +6,7 @@
 import importlib
 
 PROMGRAM_LIST = {
+    0: {"name": "menu", "module": "menu"},
     1: {"name": "New Employee (driver)", "module": "driver"},
     2: {"name": "Company Revenues", "module": "companyRevenues"},
     3: {"name": "Company Expenses", "module": "companyExpenses"},
@@ -16,6 +17,7 @@ PROMGRAM_LIST = {
     8: {"name": "Corporate Summary Report", "module": "corporateSummaryReport"},
     9: {"name": "Exit Program", "module": None}
 }
+PROMGRAM_LIST[0]
 def main():
     print(f"\nProgram Menu")
     print(f"-" * 16)
